@@ -12,6 +12,9 @@ namespace Task1_ExploreGit
             BSAcademy BSA2016 = new BSAcademy(2016, BSAcademy.Stages.Stage2_FirstLestures);
             BSA2016.About();
 
+            Console.WriteLine(new string('=', 40));
+            BSA2016.ShowStatus();
+
             Console.ReadKey();
         }
     }
