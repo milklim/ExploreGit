@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Task1_ExploreGit
 {
@@ -32,6 +30,14 @@ namespace Task1_ExploreGit
             Stage4_Finish
         }
 
+        private static Dictionary<int, string> StagesDiscription = new Dictionary<int, string>
+        {
+            {(int)Stages.Stage0_Registration, "Registration."},
+            {(int)Stages.Stage1_OnlineTest, "Online test."},
+            {(int)Stages.Stage2_FirstLestures, "Lectures with homework."},
+            {(int)Stages.Stage3_Studing, "Training at the Academy."},
+            {(int)Stages.Stage4_Finish, "The end of study."}
+        };
         public BSAcademy() : this(DateTime.Now.Year) { }
         public BSAcademy(int year, Stages st = Stages.Stage0_Registration)
         {
@@ -42,6 +48,16 @@ namespace Task1_ExploreGit
         public void About()
         {
             Console.WriteLine("About BSA:\n " + info);
+        }
+
+        public void ShowStatus()
+        {
+            Console.WriteLine("Binary Studio Academy {0}:", Year);
+            for (int i = (int)Stages.Stage0_Registration; i < CurrentStage; i++)
+            {
+                Console.WriteLine("\t{0}. {1} [status: finished]", i, StagesDiscription[i]);
+            }
+            Console.WriteLine("\t{0}. {1} [status: in progress]", CurrentStage, StagesDiscription[CurrentStage]);
         }
     }
 
